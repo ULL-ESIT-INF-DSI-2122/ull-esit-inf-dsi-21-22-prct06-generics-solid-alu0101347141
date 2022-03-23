@@ -11,24 +11,24 @@ interface Searchable<T> {
 }
 
 /**
- *
+ * Clase abstracta para construir una colección de elementos
  */
 export abstract class SearchableCollection<T> implements Collectable<T>, Searchable<T> {
   /**
-   *
+   * Constructor de la clase
    * @param {T[]} item
    */
   constructor(protected item: T[]) {
   }
   /**
-   *
+   * Función para añadir un elemento a la colección
    * @param {T} item
    */
   addItem(item: T): void {
     this.item.push(item);
   }
   /**
-   *
+   * Función para recibir el elemento en su respectivo índice
    * @param {number} i
    * @return {T}
    */
@@ -36,7 +36,7 @@ export abstract class SearchableCollection<T> implements Collectable<T>, Searcha
     return this.item[i];
   }
   /**
-   *
+   * Función para recibir la array completa
    * @param {number} i
    * @return {T}
    */
@@ -44,7 +44,7 @@ export abstract class SearchableCollection<T> implements Collectable<T>, Searcha
     return this.item;
   }
   /**
-   *
+   * Función para eliminar un elemento de la colección
    * @param {number} i
    *
    */
@@ -52,21 +52,21 @@ export abstract class SearchableCollection<T> implements Collectable<T>, Searcha
     this.item.splice(i, 1);
   }
   /**
+   * Función para conocer el tamaño de la array
    * @return {number}
    */
   getNumberOfItems(): number {
     return this.item.length;
   }
-
   abstract search(item: T): T[];
 }
 
 /**
- *
+ * Clase de colección de números
  */
 export class NumericSearchableCollection extends SearchableCollection<number> {
   /**
-   *
+   * Función para encontrar cuantas veces se repite un número en la colección
    * @param {number} elemento
    * @return {number[]}
    */
@@ -82,11 +82,11 @@ export class NumericSearchableCollection extends SearchableCollection<number> {
 }
 
 /**
- *
+ * Clase de colección de cadenas
  */
 export class StringSearchableCollection extends SearchableCollection<string> {
   /**
-   *
+   * Función para encontrar cuantas cadenas de la colección contienen una subcadena
    * @param {string} elemento
    * @return {string[]}
    */
