@@ -8,7 +8,7 @@ describe('DC', () => {
     expect(DC).to.exist;
   });
   const batman = new DC('Batman', 1.88, 95, 40, 50, 80, 300, 'Bruce Wayne', ['Joker', 'Enigma', 'Dos Caras'],
-      ['gadgets', 'intelecto', 'sigilo'], true, ['Soy Batman.', 'Soy la noche.']);
+      ['gadgets', 'intelecto', 'sigilo'], true, ['Soy Batman.']);
   it('Una instancia de DC debe ser una instancia de Fighter', () => {
     expect(batman instanceof Fighter).to.be.equal(true);
   });
@@ -50,6 +50,11 @@ describe('DC', () => {
     });
     it('- Actividad', () => {
       expect(batman.isActive()).to.be.equal(true);
+    });
+  });
+  describe('Métodos', () => {
+    it('Función para decir una frase típica', () => {
+      expect(batman.talk()).to.be.equal('Soy Batman.');
     });
   });
 });

@@ -8,7 +8,7 @@ describe('DragonBall', () => {
     expect(DragonBall).to.exist;
   });
   const vegeta = new DragonBall('Vegeta', 1.75, 94.3, 85, 40, 95, 600, 'Planeta Vegeta', 'saiyajin',
-      ['Mono Gigante', 'Supersaiyajin'], ['Gogeta', 'Yamta'], ['Sufre, insecto', 'Voy a hacerte pedazos']);
+      ['Mono Gigante', 'Supersaiyajin'], ['Gogeta', 'Yamta'], ['Sufre, insecto']);
   it('Una instancia de DragonBall debe ser una instancia de Fighter', () => {
     expect(vegeta instanceof Fighter).to.be.equal(true);
   });
@@ -50,6 +50,11 @@ describe('DragonBall', () => {
     });
     it('- Fusiones', () => {
       expect(vegeta.getFusiones()).to.deep.equal(['Gogeta', 'Yamta']);
+    });
+  });
+  describe('Métodos', () => {
+    it('Función para decir una frase típica', () => {
+      expect(vegeta.talk()).to.be.equal('Sufre, insecto');
     });
   });
 });

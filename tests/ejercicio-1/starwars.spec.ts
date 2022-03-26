@@ -52,4 +52,9 @@ describe('StarWars', () => {
       expect(kenobi.getTitulos()).to.deep.equal(['Maestro Jedi', 'Miembro del Consejo', 'General Jedi']);
     });
   });
+  describe('Métodos', () => {
+    it('Función para decir una frase típica', () => {
+      expect(kenobi.talk()).to.be.equal('Que la fuerza no te acompañe');
+    });
+  });
 });

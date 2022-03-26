@@ -8,7 +8,7 @@ describe('Marvel', () => {
     expect(Marvel).to.exist;
   });
   const thor = new Marvel('Thor', 1.98, 290.3, 90, 65, 50, 800, 'Thor Odinson', ['Loki', 'Hela'],
-      ['electricidad', 'mjolnir', 'viento'], ['Vengadores'], ['¡POR ASGARD!', 'No eres digno.', '¡Conocerás la ira de Odín!']);
+      ['electricidad', 'mjolnir', 'viento'], ['Vengadores'], ['¡POR ASGARD!']);
   it('Una instancia de Marvel debe ser una instancia de Fighter', () => {
     expect(thor instanceof Fighter).to.be.equal(true);
   });
@@ -50,6 +50,11 @@ describe('Marvel', () => {
     });
     it('- Afiliaciones', () => {
       expect(thor.getAfiliaciones()).to.deep.equal(['Vengadores']);
+    });
+  });
+  describe('Métodos', () => {
+    it('Función para decir una frase típica', () => {
+      expect(thor.talk()).to.be.equal('¡POR ASGARD!');
     });
   });
 });
