@@ -19,4 +19,7 @@ describe('Combat', () => {
     expect(combate.getAdversarios()[0]).to.deep.equal(hulk);
     expect(combate.getAdversarios()[1]).to.deep.equal(goku);
   });
+  it('Se puede simular un combate', () => {
+    expect(combate.start()).to.be.equal('El vencedor del combate es: Hulk');
+  });
 });

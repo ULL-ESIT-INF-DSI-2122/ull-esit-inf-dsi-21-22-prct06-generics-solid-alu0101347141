@@ -21,4 +21,12 @@ export class Combat {
   getAdversarios(): [Universo, Universo] {
     return this.adversarios;
   }
+  /**
+   * Método para comenzar y simular el combate Pokemon
+   * @return {string} Devuelve una cadena con el vencedor del combate
+   */
+  start(): string {
+    const vencedor: string = 'El vencedor del combate es: ';
+    return vencedor;
+  }
 }
