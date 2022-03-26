@@ -16,8 +16,37 @@ export class DragonBall extends Fighter {
  */
   constructor(nombre: string, altura: number, peso: number,
       ataque: number, defensa: number, velocidad: number, hp: number,
-    protected planetaNatal: string, protected raza: string,
-    protected portadorFuerza: boolean, protected titulos: string[]) {
+    protected planetaNatal: string, protected especie: string,
+    protected transformaciones: string[], protected fusiones: string[]) {
     super(nombre, 'dragonball', altura, peso, ataque, defensa, velocidad, hp);
+  }
+
+  /**
+   * Getter de planetaNatal
+   * @return {string}
+   */
+  getPlanetaNatal(): string {
+    return this.planetaNatal;
+  }
+  /**
+   * Getter de especie
+   * @return {string}
+   */
+  getEspecie(): string {
+    return this.especie;
+  }
+  /**
+   * Getter de transformaciones
+   * @return {string[]}
+   */
+  getTransformaciones(): string[] {
+    return this.transformaciones;
+  }
+  /**
+   * getter de fusiones
+   * @return {string[]}
+   */
+  getFusiones(): string[] {
+    return this.fusiones;
   }
 }
