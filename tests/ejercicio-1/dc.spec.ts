@@ -47,7 +47,7 @@ describe('DC', () => {
     it('- Poderes', () => {
       expect(batman.getPoderes()).to.deep.equal(['gadgets', 'intelecto', 'sigilo']);
     });
-    it('- Afiliaciones', () => {
+    it('- Actividad', () => {
       expect(batman.isActive()).to.be.equal(true);
     });
   });
