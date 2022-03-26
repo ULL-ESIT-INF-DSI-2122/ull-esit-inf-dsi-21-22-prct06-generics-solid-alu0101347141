@@ -20,4 +20,32 @@ export class Marvel extends Fighter {
       protected poderes: string[], protected afiliaciones: string[]) {
     super(nombre, 'marvel', altura, peso, ataque, defensa, velocidad, hp);
   }
+  /**
+   *
+   * @return {string}
+   */
+  getNombreReal(): string {
+    return this.nombreReal;
+  }
+  /**
+   *
+   * @return {string[]}
+   */
+  getNemesis(): string[] {
+    return this.nemesis;
+  }
+  /**
+   *
+   * @return {string}
+   */
+  getPoderes(): string[] {
+    return this.poderes;
+  }
+  /**
+   *
+   * @return {string[]}
+   */
+  getAfiliaciones(): string[] {
+    return this.afiliaciones;
+  }
 }
