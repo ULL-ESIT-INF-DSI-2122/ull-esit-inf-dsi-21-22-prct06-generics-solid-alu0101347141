@@ -30,6 +30,9 @@ describe('Marvel', () => {
     it('- Defensa', () => {
       expect(thor.getDefensa()).to.be.equal(65);
     });
+    it('- Velocidad', () => {
+      expect(thor.getVelocidad()).to.be.equal(50);
+    });
     it('- HP', () => {
       expect(thor.getHp()).to.be.equal(800);
     });
