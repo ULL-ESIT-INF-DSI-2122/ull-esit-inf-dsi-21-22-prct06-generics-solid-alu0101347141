@@ -19,19 +19,19 @@ describe('StarWars', () => {
       expect(kenobi.getUniverso()).to.be.equal('starwars');
     });
     it('- Altura', () => {
-      expect(kenobi.getAltura()).to.be.equal(1.88);
+      expect(kenobi.getAltura()).to.be.equal(1.82);
     });
     it('- Peso', () => {
-      expect(kenobi.getPeso()).to.be.equal(95);
+      expect(kenobi.getPeso()).to.be.equal(80);
     });
     it('- Ataque', () => {
-      expect(kenobi.getAtaque()).to.be.equal(40);
+      expect(kenobi.getAtaque()).to.be.equal(60);
     });
     it('- Defensa', () => {
       expect(kenobi.getDefensa()).to.be.equal(50);
     });
     it('- Velocidad', () => {
-      expect(kenobi.getVelocidad()).to.be.equal(80);
+      expect(kenobi.getVelocidad()).to.be.equal(60);
     });
     it('- HP', () => {
       expect(kenobi.getHp()).to.be.equal(300);
@@ -45,7 +45,7 @@ describe('StarWars', () => {
       expect(kenobi.getRaza()).to.be.equal('humano');
     });
     it('- Es portador de la fuerza', () => {
-      expect(kenobi.esPortadorFuerza()).to.be.equal(true);
+      expect(kenobi.isPortadorFuerza()).to.be.equal(true);
     });
     it('- Títulos', () => {
       expect(kenobi.getTitulos()).to.deep.equal(['Maestro Jedi', 'Miembro del Consejo', 'General Jedi']);
