@@ -14,7 +14,7 @@ describe('Marvel', () => {
     expect(Marvel).to.exist;
   });
   const thor = new Marvel('Thor', 1.98, 290.3, 90, 65, 50, 800, 'Thor Odinson', ['Loki', 'Hela'], ['electricidad', 'mjolnir', 'viento'], ['Vengadores']);
-  describe('Debe poder almacenar los siguientes atributos', () => {
+  describe('Debe poder almacenar los siguientes atributos (Fighter)', () => {
     it('- Nombre', () => {
       expect(thor.getNombre()).to.be.equal('Thor');
     });
@@ -35,6 +35,20 @@ describe('Marvel', () => {
     });
     it('- HP', () => {
       expect(thor.getHp()).to.be.equal(800);
+    });
+  });
+  describe('Debe poder almacenar los siguientes atributos específicos', () => {
+    it('- Nombre Real', () => {
+      expect(thor.getNombreReal()).to.be.equal('Thor Odinson');
+    });
+    it('- Nemesis', () => {
+      expect(thor.getNemesis()).to.deep.equal(['Loki', 'Hela']);
+    });
+    it('- Poderes', () => {
+      expect(thor.getPoderes()).to.deep.equal(['electricidad', 'mjolnir', 'viento']);
+    });
+    it('- Afiliaciones', () => {
+      expect(thor.getAfiliaciones()).to.deep.equal(['Vengadores']);
     });
   });
 });
