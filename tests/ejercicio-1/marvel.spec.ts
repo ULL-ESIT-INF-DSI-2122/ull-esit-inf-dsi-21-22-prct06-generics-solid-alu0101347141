@@ -1,19 +1,16 @@
 import 'mocha';
 import {expect} from 'chai';
-import {Fighter} from '../src/ejercicio-1/fighter';
-import {Marvel} from '../src/ejercicio-1/marvel';
-
-describe('Fighter', () => {
-  it('Debe existir una clase abstracta para representar luchadores', () => {
-    expect(Fighter).to.exist;
-  });
-});
+import {Fighter} from '../../src/ejercicio-1/fighter';
+import {Marvel} from '../../src/ejercicio-1/marvel';
 
 describe('Marvel', () => {
-  it('Debe existir una clase Marvel que extienda Fighter', () => {
+  it('Debe existir una clase Marvel', () => {
     expect(Marvel).to.exist;
   });
   const thor = new Marvel('Thor', 1.98, 290.3, 90, 65, 50, 800, 'Thor Odinson', ['Loki', 'Hela'], ['electricidad', 'mjolnir', 'viento'], ['Vengadores']);
+  it('Una instancia de Marvel debe ser una instancia de Fighter', () => {
+    expect(thor instanceof Fighter).to.be.equal(true);
+  });
   describe('Debe poder almacenar los siguientes atributos (Fighter)', () => {
     it('- Nombre', () => {
       expect(thor.getNombre()).to.be.equal('Thor');
