@@ -7,7 +7,8 @@ describe('DC', () => {
   it('Debe existir una clase DC', () => {
     expect(DC).to.exist;
   });
-  const batman = new DC('Batman', 1.88, 95, 40, 50, 80, 300, 'Bruce Wayne', ['Joker', 'Enigma', 'Dos Caras'], ['gadgets', 'intelecto', 'sigilo'], true);
+  const batman = new DC('Batman', 1.88, 95, 40, 50, 80, 300, 'Bruce Wayne', ['Joker', 'Enigma', 'Dos Caras'],
+      ['gadgets', 'intelecto', 'sigilo'], true, ['Soy Batman.', 'Soy la noche.']);
   it('Una instancia de DC debe ser una instancia de Fighter', () => {
     expect(batman instanceof Fighter).to.be.equal(true);
   });

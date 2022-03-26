@@ -7,7 +7,8 @@ describe('DragonBall', () => {
   it('Debe existir una clase DragonBall', () => {
     expect(DragonBall).to.exist;
   });
-  const vegeta = new DragonBall('Vegeta', 1.75, 94.3, 85, 40, 95, 600, 'Planeta Vegeta', 'saiyajin', ['Mono Gigante', 'Supersaiyajin'], ['Gogeta', 'Yamta']);
+  const vegeta = new DragonBall('Vegeta', 1.75, 94.3, 85, 40, 95, 600, 'Planeta Vegeta', 'saiyajin',
+      ['Mono Gigante', 'Supersaiyajin'], ['Gogeta', 'Yamta'], ['Sufre, insecto', 'Voy a hacerte pedazos']);
   it('Una instancia de DragonBall debe ser una instancia de Fighter', () => {
     expect(vegeta instanceof Fighter).to.be.equal(true);
   });

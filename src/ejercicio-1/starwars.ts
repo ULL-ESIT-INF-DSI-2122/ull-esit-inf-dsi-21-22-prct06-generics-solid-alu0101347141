@@ -17,8 +17,8 @@ export class StarWars extends Fighter {
   constructor(nombre: string, altura: number, peso: number,
       ataque: number, defensa: number, velocidad: number, hp: number,
       protected planetaNatal: string, protected raza: string,
-      protected portadorFuerza: boolean, protected titulos: string[]) {
-    super(nombre, 'starwars', altura, peso, ataque, defensa, velocidad, hp);
+      protected portadorFuerza: boolean, protected titulos: string[], protected frases: string[]) {
+    super(nombre, 'starwars', altura, peso, ataque, defensa, velocidad, hp, frases);
   }
   /**
    * Getter de planetaNatal

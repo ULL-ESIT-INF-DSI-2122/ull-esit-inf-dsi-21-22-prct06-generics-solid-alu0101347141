@@ -7,7 +7,8 @@ describe('StarWars', () => {
   it('Debe existir una clase StarWars', () => {
     expect(StarWars).to.exist;
   });
-  const kenobi = new StarWars('Obi-Wan Kenobi', 1.82, 80, 60, 50, 60, 300, 'Stewjon', 'humano', true, ['Maestro Jedi', 'Miembro del Consejo', 'General Jedi']);
+  const kenobi = new StarWars('Obi-Wan Kenobi', 1.82, 80, 60, 50, 60, 300, 'Stewjon', 'humano',
+      true, ['Maestro Jedi', 'Miembro del Consejo', 'General Jedi'], ['Que la fuerza no te acompañe']);
   it('Una instancia de StarWars debe ser una instancia de Fighter', () => {
     expect(kenobi instanceof Fighter).to.be.equal(true);
   });

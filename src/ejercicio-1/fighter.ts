@@ -14,7 +14,7 @@ export abstract class Fighter {
  * @param {number} hp
  */
   constructor(protected readonly nombre: string, protected readonly universo: string, protected altura: number, protected peso: number,
-  protected ataque: number, protected defensa: number, protected velocidad: number, protected hp: number) {
+  protected ataque: number, protected defensa: number, protected velocidad: number, protected hp: number, protected frases: string[]) {
   }
   /**
    * Getter de nombre
@@ -71,5 +71,12 @@ export abstract class Fighter {
    */
   getHp(): number {
     return this.hp;
+  }
+  /**
+   * Getter de HP
+   * @return {number}
+   */
+  talk(): string {
+    return this.frases[Math.floor(Math.random() * (this.frases.length))];
   }
 }

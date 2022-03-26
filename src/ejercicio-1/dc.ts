@@ -17,8 +17,8 @@ export class DC extends Fighter {
   constructor(nombre: string, altura: number, peso: number,
       ataque: number, defensa: number, velocidad: number, hp: number,
       protected nombreReal: string, protected nemesis: string[],
-      protected poderes: string[], protected activo: boolean) {
-    super(nombre, 'dc', altura, peso, ataque, defensa, velocidad, hp);
+      protected poderes: string[], protected activo: boolean, protected frases: string[]) {
+    super(nombre, 'dc', altura, peso, ataque, defensa, velocidad, hp, frases);
   }
   /**
    * Getter de nombreReal

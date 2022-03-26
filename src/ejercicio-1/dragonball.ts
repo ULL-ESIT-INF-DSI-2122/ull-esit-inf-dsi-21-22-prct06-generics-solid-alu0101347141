@@ -17,8 +17,8 @@ export class DragonBall extends Fighter {
   constructor(nombre: string, altura: number, peso: number,
       ataque: number, defensa: number, velocidad: number, hp: number,
     protected planetaNatal: string, protected especie: string,
-    protected transformaciones: string[], protected fusiones: string[]) {
-    super(nombre, 'dragonball', altura, peso, ataque, defensa, velocidad, hp);
+    protected transformaciones: string[], protected fusiones: string[], protected frases: string[]) {
+    super(nombre, 'dragonball', altura, peso, ataque, defensa, velocidad, hp, frases);
   }
 
   /**

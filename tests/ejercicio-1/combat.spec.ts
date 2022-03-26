@@ -10,8 +10,10 @@ describe('Combat', () => {
   it('Debe existir una clase Combat', () => {
     expect(Combat).to.exist;
   });
-  const hulk = new Marvel('Hulk', 3.00, 635.0, 100, 90, 30, 10000, 'Bruce Banner', ['Abominación', 'Thunderbolt Ross'], ['fuerza', 'radiacion'], ['Vengadores', 'Defensores']);
-  const goku = new DragonBall('Goku', 1.80, 89.2, 90, 60, 98, 560, 'Planeta Vegeta', 'saiyajin', ['Mono Gigante', 'Supersaiyajin'], ['Gogeta', 'Yamta']);
+  const hulk = new Marvel('Hulk', 3.00, 635.0, 100, 90, 30, 10000, 'Bruce Banner', ['Abominación', 'Thunderbolt Ross'],
+      ['fuerza', 'radiacion'], ['Vengadores', 'Defensores'], ['¡¡HULK APLASTA!!', 'AAAAGRRGRR', 'GGRRRRGRR']);
+  const goku = new DragonBall('Goku', 1.80, 89.2, 90, 60, 98, 560, 'Planeta Vegeta', 'saiyajin',
+      ['Mono Gigante', 'Supersaiyajin'], ['Gogeta', 'Gotán', 'Kuhan'], ['¡No me rendiré!', 'Kame...hame...HAAA', '¡Alzad las manos!']);
   const combate = new Combat([hulk, goku]);
   it('Almacena dos adversarios de cualquier universo', () => {
     expect(combate.getAdversarios()[0]).to.deep.equal(hulk);
