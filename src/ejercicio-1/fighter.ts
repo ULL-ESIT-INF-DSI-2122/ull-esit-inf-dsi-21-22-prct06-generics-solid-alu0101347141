@@ -8,6 +8,6 @@ export abstract class Fighter {
  * @param {number} altura
  * @param {number} peso
  */
-  constructor(protected nombre: string, protected altura: number, protected peso: number) {
+  constructor(protected nombre: string, protected universo: string, protected altura: number, protected peso: number) {
   }
 }
