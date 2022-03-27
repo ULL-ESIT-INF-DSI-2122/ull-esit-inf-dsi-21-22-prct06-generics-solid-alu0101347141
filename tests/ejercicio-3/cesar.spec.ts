@@ -6,4 +6,8 @@ describe('Cifrado Cesar', () => {
   it('Debe existir una clase Cesar', () => {
     expect(Cesar).to.exist;
   });
+  const prueba = new Cesar('ABCDEFGHIJKLMNÑOPQRSTUVWXYZ', 'CLAVE');
+  it('Permite cifrar', () => {
+    expect(prueba.cifrar('HOLAESTOESUNAPRUEBA')).to.be.equal('');
+  });
 });
