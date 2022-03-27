@@ -19,19 +19,19 @@ Sabiendo esto último, lo lógico es crear una clase que reúna esos **rasgos co
 
 Estas clases herederas de Fighter servirán, cada una, para representar luchadores de un universo diferente. En este caso, serán los universos DC, Marvel, Star Wars y Dragon Ball. Nos quedará entonces la jerarquía tal que así:
 
-  - abstract class Fighter
-    * class DC
-    * class Marvel
-    * class StarWars
-    * class DragonBall
+  - abstract class **Fighter**
+    * class **DC**
+    * class **Marvel**
+    * class **StarWars**
+    * class **DragonBall**
 
 Con eso desarrollado, podremos al fin implementar la **clase Combat**, que deberá contener una tupla de dos elementos (los dos adversarios que se batirán en duelo), con la característica fundamental de que tanto el primer como el segundo elemento de dicha tupla deben poder albergar luchadores de cualquiera de los universos representados. Es decir, si definimos el tipo:
 
         type Universo = Marvel | DC | StarWars | DragonBall;
 
-La tupla de adversarios debe ser de la forma [Universo, Universo].
+La tupla de adversarios debe ser de la forma **[Universo, Universo]**.
 
-Finalmente, se pide también ampliar la funcionalidad de la **clase Pokedex** desarrollada en la práctica anterior, permitiendo ahora almacenar luchadores de todos los universos. Esto se conseguirá de la misma forma que con la clase Combat, salvo que en lugar de una tupla de dos elementos, el atributo con la base de datos debe ser un array de la forma Universo[].
+Finalmente, se pide también ampliar la funcionalidad de la **clase Pokedex** desarrollada en la práctica anterior, permitiendo ahora almacenar luchadores de todos los universos. Esto se conseguirá de la misma forma que con la clase Combat, salvo que en lugar de una tupla de dos elementos, el atributo con la base de datos debe ser un array de la forma **Universo[]**.
 
 Procede entonces la explicación de cada una de las clases que entran en juego en este ejercicio.
 
