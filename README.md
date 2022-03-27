@@ -234,12 +234,11 @@ Además de los atributos concretos, a la hora de instanciar un objeto de esta cl
           //
         }
 
-
 #### Atributos
 
 Un luchador de Star Wars tendrá los siguientes atributos específicos:
   - planetaNatal: string -> Planeta donde nació
-  - raza: string[] -> Raza a la que pertenece
+  - raza: string -> Raza a la que pertenece
   - portadorFuerza: boolean -> Indica si tiene control sobre la Fuerza o no
   - titulos: string[] -> Conjunto títulos y reconocimientos que alberga
 
@@ -269,4 +268,50 @@ Además de los atributos concretos, a la hora de instanciar un objeto de esta cl
 
       getTitulos(): string[] {
         return this.titulos;
-      } 
+      }
+
+### Clase DragonBall
+
+      export class DragonBall extends Fighter {
+        constructor(nombre: string, altura: number, peso: number,
+            ataque: number, defensa: number, velocidad: number, hp: number,
+          protected planetaNatal: string, protected especie: string,
+          protected transformaciones: string[], protected fusiones: string[], protected frases: string[]) {
+          super(nombre, 'dragonball', altura, peso, ataque, defensa, velocidad, hp, frases);
+        }
+
+#### Atributos
+
+Un luchador de Dragon Ball tendrá los siguientes atributos específicos:
+  - planetaNatal: string -> Planeta donde nació
+  - especie: string -> Especie a la que pertenece
+  - transformaciones: string[] -> Conjunto de transformaciones que ha alcanzado
+  - fusiones: string[] -> Conjunto de fusiones que ha realizado con otros personajes
+
+Además de los atributos concretos, a la hora de instanciar un objeto de esta clase deberán pasársele a través del constructor los atributos de la clase Fighter, que se canalizarán a través de la función _super()_.
+
+#### Funciones
+
+##### Getter de planetaNatal
+      
+      getPlanetaNatal(): string {
+        return this.planetaNatal;
+      }
+
+##### Getter de especie
+
+      getEspecie(): string {
+        return this.especie;
+      }
+
+##### Getter de transformaciones
+
+      getTransformaciones(): string[] {
+        return this.transformaciones;
+      }
+
+##### Getter de fusiones
+
+      getFusiones(): string[] {
+        return this.fusiones;
+      }
