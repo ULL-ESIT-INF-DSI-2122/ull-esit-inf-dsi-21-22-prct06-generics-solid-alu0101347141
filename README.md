@@ -787,3 +787,42 @@ Y finalmente implementamos las funciones que la interfaz nos dicta.
         });
         return resultado;
       }
+
+### Clase ColeccionPeliculas
+
+      export class ColeccionPeliculas extends BasicStreamableCollection<Pelicula> {
+        constructor(coleccion: Pelicula[]) {
+          super(coleccion);
+        }
+        //
+        // Funciones
+        //
+      }
+
+Para desarrollar nuevas funciones, específicas para una colección de películas, extendemos la clase basicStreamableCollection concretándole el tipo Pelicula tal y como se ve en el código anterior.
+
+### Clase ColeccionSeries
+
+      export class ColeccionSeries extends BasicStreamableCollection<Serie> {
+        constructor(coleccion: Serie[]) {
+          super(coleccion);
+        }
+        //
+        // Funciones
+        //
+      }
+
+Para desarrollar nuevas funciones, específicas para una colección de series, extendemos la clase basicStreamableCollection concretándole el tipo Serie tal y como se ve en el código anterior.
+
+### Clase ColeccionDocumentales
+
+      export class ColeccionDocumentales extends BasicStreamableCollection<Documental> {
+        constructor(coleccion: Documental[]) {
+          super(coleccion);
+        }
+        //
+        // Funciones
+        //
+      }
+
+Para desarrollar nuevas funciones, específicas para una colección de documentales, extendemos la clase basicStreamableCollection concretándole el tipo Documental tal y como se ve en el código anterior.
