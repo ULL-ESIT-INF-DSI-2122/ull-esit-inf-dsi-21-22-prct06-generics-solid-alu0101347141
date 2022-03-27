@@ -1,7 +1,21 @@
 {
   "entryPoints": [
     "./src/ejercicio-PE.ts",
-    "./src/ejercicio-1/fighter.ts"
+    "./src/ejercicio-1/fighter.ts",
+    "./src/ejercicio-1/combat.ts",
+    "./src/ejercicio-1/dc.ts",
+    "./src/ejercicio-1/marvel.ts",
+    "./src/ejercicio-1/starwars.ts",
+    "./src/ejercicio-1/dragonball.ts",
+    "./src/ejercicio-1/pokedex.ts",
+    "./src/ejercicio-2/basicStreamableCollection.ts",
+    "./src/ejercicio-2/coleccionDocumentales.ts",
+    "./src/ejercicio-2/coleccionPeliculas.ts",
+    "./src/ejercicio-2/coleccionSeries.ts",
+    "./src/ejercicio-2/documental.ts",
+    "./src/ejercicio-2/serie.ts",
+    "./src/ejercicio-2/pelicula.ts",
+    "./src/ejercicio-3/cesar.ts"
   ],
   "out": "./docs"
 }
