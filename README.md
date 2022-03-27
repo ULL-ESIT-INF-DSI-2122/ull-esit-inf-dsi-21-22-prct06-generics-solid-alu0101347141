@@ -433,3 +433,100 @@ Como se explicó al principio, la clase Pokedex contendrá una tupla de elemento
           }
         }
       }
+
+## Ejercicio 2 - DSIFlix
+
+El propósito de este ejercicio es elaborar una serie de clases capaces de contener y gestionar una colección de un tipo de contenido concreto. En específico, se pide conseguir una clase para representar una colección de películas, otra para una colección de series y otra para una colección de documentales. Aunque cada una tendrá sus funcionalidades específicas, todas ellas contarán con los rasgos fundamentales que debe tener una colección. 
+
+Para esto, se creará antes que nada una interfaz genérica Streamable, en la que se plantearán aquellos métodos que deberá tener una colección, sea cual sea el contenido que maneje. Luego, esta interfaz será implementada por una clase abstracta genérica BasicStreamableCollection, que desarrollará las funciones comunes para los distintos tipos de colecciones. Finalmente, tanto la clase para representar una colección de series, como aquella para las películas, y también la de los documentales, extenderán dicha clase abstracta para expandir su funcionalidad acorde a sus respectivas necesidades.
+
+Nos quedará entonces así la jerarquía de herencia:
+
+  - Contenido
+    + class Pelicula
+    + class Serie
+    + Class Documental
+
+Definimos el siguiente tipo, la unión de las distintas formas de contenido: 
+      
+      type Contenido = Pelicula | Serie | Documental;
+
+  - Colecciones
+    + interface Streamable <T extends Contenido>
+      * abstract class BasicStreamableCollection <T extends Contenido> implements Streamable<T>
+        - class ColeccionDocumentales extends BasicStreamableCollection<Documental>
+        - class ColeccionPeliculas extends BasicStreamableCollection<Pelicula>
+        - class ColeccionSeries extends BasicStreamableCollection<Serie> 
+
+Procede la explicación de cada una de las clases.
+
+### Clase Pelicula
+
+      export class Pelicula {
+        constructor(private nombre: string, private duracion: number, private fecha: string,
+          private director: string, private guionista: string, private reparto: string[],
+          private generos: string[], private calificacion: number) {}
+          //
+          // Funciones
+          //
+      }
+
+#### Atributos
+
+Se han escogido los siguientes atributos para representar una película:
+  - nombre: string -> Nombre de la película
+  - duracion: number -> Duración (en minutos) de la película
+  - fecha: string -> Fecha en formato 'd/m/aaaa'
+  - director: string -> Director de la película
+  - guionista: string -> Guionista de la película
+  - reparto: string[] -> Conjunto de actores protagonistas de la película
+  - generos: string[] -> Conjunto de géneros de la película
+  - calificacion: number -> Calificación media de la película
+
+  ##### Getter de nombre
+  
+      getNombre(): string {
+        return this.nombre;
+      }
+
+  ##### Getter de duracion
+
+      getDuracion(): number {
+        return this.duracion;
+      }
+
+  ##### Getter de fecha
+
+      getFecha(): string {
+        return this.fecha;
+      }
+
+  ##### Getter de director
+
+      getDirector(): string {
+        return this.director;
+      }
+
+  ##### Getter de guionista
+
+      getGuionista(): string {
+        return this.guionista;
+      }
+
+  ##### Getter de reparto
+
+      getReparto(): string[] {
+        return this.reparto;
+      }
+
+  ##### Getter de generos
+
+      getGeneros(): string[] {
+        return this.generos;
+      }
+
+  ##### Getter de calificacion
+
+        getCalificacion(): number {
+        return this.calificacion;
+      }
