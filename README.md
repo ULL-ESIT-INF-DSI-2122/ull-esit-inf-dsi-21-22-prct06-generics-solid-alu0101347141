@@ -11,6 +11,8 @@
 
 A excepción del último ejercicio, que se ha podido desarrollar con tan solo una clase de dos funciones (cifrado y descifrado), para esta práctica se ha utilizado el conocimiento relacionado con el uso de clases genéricas y abstractas, así como de las interfaces, extendiendo las primeras e implementando las segundas para conseguir el entramado de tipos y funcionalidades que son requeridos para alcanzar los objetivos.
 
+***
+
 ## Ejercicio 1 - Luchadores de distintos universos
 
 La idea final de este ejercicio es conseguir simular un combate entre personajes procedentes de distintos universos, teniendo un personaje de X universo una serie de características compartidas con los de su mismo universo, pero que pueden ser distintas a las que comparten los personajes de un universo Y. Sin embargo, aunque luchadores de diferentes universos puedan tener rasgos distintos, sí que habrá una serie de rasgos (o, mejor dicho, atributos) comunes para todos los personajes, sin excepción (un nombre o una cantidad de vida \[HP] son dos ejemplos de esto). 
@@ -34,6 +36,8 @@ La tupla de adversarios debe ser de la forma **[Universo, Universo]**.
 Finalmente, se pide también ampliar la funcionalidad de la **clase Pokedex** desarrollada en la práctica anterior, permitiendo ahora almacenar luchadores de todos los universos. Esto se conseguirá de la misma forma que con la clase Combat, salvo que en lugar de una tupla de dos elementos, el atributo con la base de datos debe ser un array de la forma **Universo[]**.
 
 Procede entonces la explicación de cada una de las clases que entran en juego en este ejercicio.
+
+***
 
 ### Clase Fighter
 
@@ -119,6 +123,8 @@ Y, finalmente, aunque también podría considerarse un getter (del atributo _fra
         return this.frases[Math.floor(Math.random() * (this.frases.length))];
       }
 
+***
+
 ### Clase DC
 
         export class DC extends Fighter {
@@ -169,6 +175,8 @@ Además de los atributos concretos, a la hora de instanciar un objeto de esta cl
         return this.activo;
       }
   
+***
+
 ### Clase Marvel
 
         export class Marvel extends Fighter {
@@ -220,6 +228,8 @@ Además de los atributos concretos, a la hora de instanciar un objeto de esta cl
         return this.afiliaciones;
       }
 
+***
+
 ### Clase StarWars
 
         export class StarWars extends Fighter {
@@ -270,6 +280,8 @@ Además de los atributos concretos, a la hora de instanciar un objeto de esta cl
         return this.titulos;
       }
 
+***
+
 ### Clase DragonBall
 
       export class DragonBall extends Fighter {
@@ -315,6 +327,8 @@ Además de los atributos concretos, a la hora de instanciar un objeto de esta cl
       getFusiones(): string[] {
         return this.fusiones;
       }
+
+***
 
 ### Clase Combat
       
@@ -389,6 +403,8 @@ Esta función es una mejora directa de la función implementada en la práctica 
 
 A la hora de calcular la efectividad de los ataques, se ha tenido en cuenta la naturaleza de los distintos universos. Un personaje de Dragon Ball, universo con leyes físicas prácticamente inexistentes e inmesurables cantidades de poder, atacará con mayor efectividad. Un personaje de Marvel o de DC, ambos universos de superhéroes bastante similares, atacarán con una efectividad media (ni sumará ni restará al daño aplicado). Por último, un personaje de Star Wars tendrá una menor efectividad, pues sus personajes son considerablemente más débiles que la gran mayoría de personajes del resto de universos. 
 
+***
+
 ### Clase Pokedex
       
       type Universo = Marvel | DC | StarWars | DragonBall;
@@ -434,6 +450,8 @@ Como se explicó al principio, la clase Pokedex contendrá una tupla de elemento
         }
       }
 
+***
+
 ## Ejercicio 2 - DSIFlix
 
 El propósito de este ejercicio es elaborar una serie de clases capaces de contener y gestionar una colección de un tipo de contenido concreto. En específico, se pide conseguir una clase para representar una colección de películas, otra para una colección de series y otra para una colección de documentales. Aunque cada una tendrá sus funcionalidades específicas, todas ellas contarán con los rasgos fundamentales que debe tener una colección. 
@@ -459,6 +477,8 @@ Definimos el siguiente tipo, la unión de las distintas formas de contenido:
         - class ColeccionSeries extends BasicStreamableCollection<Serie> 
 
 Procede la explicación de cada una de las clases.
+
+***
 
 ### Clase Pelicula
 
@@ -532,6 +552,8 @@ Se han escogido los siguientes atributos para representar una película:
       getCalificacion(): number {
       return this.calificacion;
     }
+
+***
 
 ### Clase Serie
 
@@ -608,6 +630,8 @@ Se han escogido los siguientes atributos para representar una serie:
       getCalificacion(): number {
       return this.calificacion;
     }
+
+***
 
 ### Clase Documental
 
@@ -688,6 +712,8 @@ Se han escogido los siguientes atributos para representar un documental:
 ### Posible clase abstracta
 
 Como podemos ver, las tres clases comentadas: Pelicula, Serie y Documental cuentan con algunos atributos en común y, probablemente, si creásemos nuevos tipos de contenido es muy posible que eso se mantenga. Podríamos entonces crear una clase abstracta Contenido, que tenga atributos como _nombre_ o _calificacion_, y extenderla con Pelicula, Serie y Documental. Aun así, para la implementación de esta práctica se ha decidido mantenerlas como clases estrictamente independientes, para hacer más sencilla la exposición y explicación del desarrollo. 
+
+***
 
 ### Interfaz Streamable y Clase basicStreamableCollection
 
@@ -788,6 +814,8 @@ Y finalmente implementamos las funciones que la interfaz nos dicta.
         return resultado;
       }
 
+***
+
 ### Clase ColeccionPeliculas
 
       export class ColeccionPeliculas extends BasicStreamableCollection<Pelicula> {
@@ -800,6 +828,8 @@ Y finalmente implementamos las funciones que la interfaz nos dicta.
       }
 
 Para desarrollar nuevas funciones, específicas para una colección de películas, extendemos la clase basicStreamableCollection concretándole el tipo Pelicula tal y como se ve en el código anterior.
+
+***
 
 ### Clase ColeccionSeries
 
@@ -814,6 +844,8 @@ Para desarrollar nuevas funciones, específicas para una colección de película
 
 Para desarrollar nuevas funciones, específicas para una colección de series, extendemos la clase basicStreamableCollection concretándole el tipo Serie tal y como se ve en el código anterior.
 
+***
+
 ### Clase ColeccionDocumentales
 
       export class ColeccionDocumentales extends BasicStreamableCollection<Documental> {
@@ -826,6 +858,8 @@ Para desarrollar nuevas funciones, específicas para una colección de series, e
       }
 
 Para desarrollar nuevas funciones, específicas para una colección de documentales, extendemos la clase basicStreamableCollection concretándole el tipo Documental tal y como se ve en el código anterior.
+
+***
 
 ## Ejercicio 3 - Cifrado Cesar
 
