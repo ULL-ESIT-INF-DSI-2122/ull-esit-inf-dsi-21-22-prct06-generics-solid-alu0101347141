@@ -30,4 +30,8 @@ describe('ColeccionSeries', () => {
   it('Se puede recibir el número de series', () => {
     expect(coleccionTest.getCantidad()).to.deep.equal(3);
   });
+  it('Se puede buscar una serie por su fecha', () => {
+    expect(coleccionTest.searchByFecha('20/1/2008')).to.deep.equal([serie1]);
+    expect(coleccionTest.searchByFecha('17/4/2011')).to.deep.equal([serie2]);
+  });
 });
