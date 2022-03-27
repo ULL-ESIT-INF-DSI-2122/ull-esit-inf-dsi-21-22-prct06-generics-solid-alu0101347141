@@ -7,13 +7,11 @@
 
 [![Coverage Status](https://coveralls.io/repos/github/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct06-generics-solid-alu0101347141/badge.svg?branch=main)](https://coveralls.io/github/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct06-generics-solid-alu0101347141?branch=main)
 
-## Combates multiversales, plataforma de streaming y cifrado César.
+### Combates multiversales, plataforma de streaming y cifrado César.
 
 A excepción del último ejercicio, que se ha podido desarrollar con tan solo una clase de dos funciones (cifrado y descifrado), para esta práctica se ha utilizado el conocimiento relacionado con el uso de clases genéricas y abstractas, así como de las interfaces, extendiendo las primeras e implementando las segundas para conseguir el entramado de tipos y funcionalidades que son requeridos para alcanzar los objetivos.
 
-***
-
-## Ejercicio 1 - Luchadores de distintos universos
+# Ejercicio 1 - Luchadores de distintos universos
 
 La idea final de este ejercicio es conseguir simular un combate entre personajes procedentes de distintos universos, teniendo un personaje de X universo una serie de características compartidas con los de su mismo universo, pero que pueden ser distintas a las que comparten los personajes de un universo Y. Sin embargo, aunque luchadores de diferentes universos puedan tener rasgos distintos, sí que habrá una serie de rasgos (o, mejor dicho, atributos) comunes para todos los personajes, sin excepción (un nombre o una cantidad de vida \[HP] son dos ejemplos de esto). 
 
@@ -452,7 +450,7 @@ Como se explicó al principio, la clase Pokedex contendrá una tupla de elemento
 
 ***
 
-## Ejercicio 2 - DSIFlix
+# Ejercicio 2 - DSIFlix
 
 El propósito de este ejercicio es elaborar una serie de clases capaces de contener y gestionar una colección de un tipo de contenido concreto. En específico, se pide conseguir una clase para representar una colección de películas, otra para una colección de series y otra para una colección de documentales. Aunque cada una tendrá sus funcionalidades específicas, todas ellas contarán con los rasgos fundamentales que debe tener una colección. 
 
@@ -861,7 +859,7 @@ Para desarrollar nuevas funciones, específicas para una colección de documenta
 
 ***
 
-## Ejercicio 3 - Cifrado Cesar
+# Ejercicio 3 - Cifrado Cesar
 
 En esta actividad el objetivo es programar una implementación del cifrado Cesar y su correspondiente descifrado. Aunque existe un amplio abanico de opciones con las que abarcar este problema, lo que al final se ha decidido es desarrollar lo siguiente:
 
