@@ -10,4 +10,7 @@ describe('Cifrado Cesar', () => {
   it('Permite cifrar', () => {
     expect(prueba.cifrar('HOLAESTOESUNAPRUEBA')).to.be.equal('JZLVIUEOZWWXALVWOBV');
   });
+  it('Permite descifrar', () => {
+    expect(prueba.descifrar('JZLVIUEOZWWXALVWOBV')).to.be.equal('HOLAESTOESUNAPRUEBA');
+  });
 });
