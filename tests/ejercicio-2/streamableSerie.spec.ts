@@ -34,4 +34,7 @@ describe('ColeccionSeries', () => {
     expect(coleccionTest.searchByFecha('20/1/2008')).to.deep.equal([serie1]);
     expect(coleccionTest.searchByFecha('17/4/2011')).to.deep.equal([serie2]);
   });
+  it('Se puede buscar una serie por nombre', () => {
+    expect(coleccionTest.searchByNombre('Juego')).to.deep.equal([serie2, serie3]);
+  });
 });
