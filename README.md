@@ -688,3 +688,102 @@ Se han escogido los siguientes atributos para representar un documental:
 ### Posible clase abstracta
 
 Como podemos ver, las tres clases comentadas: Pelicula, Serie y Documental cuentan con algunos atributos en común y, probablemente, si creásemos nuevos tipos de contenido es muy posible que eso se mantenga. Podríamos entonces crear una clase abstracta Contenido, que tenga atributos como _nombre_ o _calificacion_, y extenderla con Pelicula, Serie y Documental. Aun así, para la implementación de esta práctica se ha decidido mantenerlas como clases estrictamente independientes, para hacer más sencilla la exposición y explicación del desarrollo. 
+
+### Interfaz Streamable y Clase basicStreamableCollection
+
+        type Contenido = Pelicula | Serie | Documental;
+
+        interface Streamable <T extends Contenido> {
+          añadir(item: T): void;
+          borrar(i: number): void;
+          getColeccion(): T[];
+          getCantidad(): number;
+          searchByFecha(fecha: string): T[];
+          searchByNombre(texto: string): T[];
+          searchByNota(nota: number): T[];
+        }
+
+#### Funciones
+
+Se plantean las siguientes funciones fundamentales que debe tener una colección de contenido streaming:
+  - añadir() -> Añade un nuevo elemento en la colección
+  - borrar() -> Borra un elemento de la colección 
+  - getColeccion() -> Devuelve la colección
+  - getCantidad() -> Devuelve la cantidad de contenido de la colección
+  - searchByFecha() -> Buscar contenido de una fecha concreta
+  - searchByNombre() -> Buscar contenido que incluya una o varias palabras en su título
+  - searchByNota() -> Buscar contenido con calificación superior a una nota mínima 
+  
+
+Implementamos entonces la interfaz en la clase abstracta:
+
+      export abstract class BasicStreamableCollection < T extends Contenido> implements Streamable<T> {
+        constructor(private coleccion: T[]) {}
+        //
+        // Funciones
+        //
+      }
+
+Y finalmente implementamos las funciones que la interfaz nos dicta.
+
+#### Funciones
+
+##### Función para añadir un elemento
+      
+      añadir(item: T): void {
+        this.coleccion.push(item);
+      }
+
+##### Función para borrar un elemento
+
+      borrar(i: number): void {
+        this.coleccion.splice(i, 1);
+      }
+
+##### Getter de la colección
+
+      getColeccion(): T[] {
+        return this.coleccion;
+      }
+
+##### Función para conocer la cantidad de contenido
+
+      getCantidad(): number {
+        return this.coleccion.length;
+      }
+
+##### Función para buscar contenido publicado en una fecha
+
+      searchByFecha(fecha: string): T[] {
+        const resultado: T[] = [];
+        this.coleccion.forEach(function(a) {
+          if (a.getFecha() == fecha) {
+            resultado.push(a);
+          }
+        });
+        return resultado;
+      }
+
+##### Función buscar contenido que tenga una o varias palabras en su título
+
+      searchByNombre(texto: string): T[] {
+        const resultado: T[] = [];
+        this.coleccion.forEach(function(a) {
+          if (a.getNombre().includes(texto)) {
+            resultado.push(a);
+          }
+        });
+        return resultado;
+      }
+
+##### Función para buscar contenido que tenga una calificación mayor que una nota mínima
+
+      searchByNota(nota: number): T[] {
+        const resultado: T[] = [];
+        this.coleccion.forEach(function(a) {
+          if (a.getCalificacion() >= nota) {
+            resultado.push(a);
+          }
+        });
+        return resultado;
+      }
