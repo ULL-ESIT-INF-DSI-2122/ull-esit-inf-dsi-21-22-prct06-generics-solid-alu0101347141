@@ -315,3 +315,121 @@ Además de los atributos concretos, a la hora de instanciar un objeto de esta cl
       getFusiones(): string[] {
         return this.fusiones;
       }
+
+### Clase Combat
+      
+      type Universo = Marvel | DC | StarWars | DragonBall;
+
+      export class Combat {
+        constructor(protected adversarios: [Universo, Universo]) {};
+        // 
+        // Funciones
+        //
+      }
+
+#### Atributos
+
+- adversarios: [Universo, Universo]
+
+Como se explicó al principio, la clase Combat contendrá una tupla de dos elementos, ambos de tipo Universo (donde Universo es la unión de tipos entre los distintos universos que se hayan implementado).
+
+#### Funciones
+
+##### Getter de los adversarios
+      
+      getAdversarios(): [Universo, Universo] {
+        return this.adversarios;
+      }
+
+##### start() | Función para simular un combate
+
+      start(): string {
+        let turno: number;
+        let iterador: number = 0;
+        const dañoSufrido: [number, number] = [0, 0];
+        console.log('*****************************');
+        console.log(this.adversarios[0].getNombre() + ' VS ' + this.adversarios[1].getNombre());
+        console.log('*****************************\n');
+        while ((this.adversarios[0].getHp() > dañoSufrido[0]) && (this.adversarios[1].getHp() > dañoSufrido[1])) {
+          turno = iterador % 2;
+          console.log(this.adversarios[turno].getNombre() + ' ataca y dice: ' + this.adversarios[turno].talk() + '\n');
+          switch (turno) {
+            case 0:
+              if (this.adversarios[0].getUniverso() == 'dragonball') {
+                dañoSufrido[1] += 50 * (this.adversarios[0].getAtaque() / this.adversarios[1].getDefensa()) * 2;
+              } if ((this.adversarios[0].getUniverso() == 'marvel') || (this.adversarios[0].getUniverso() == 'dc')) {
+                dañoSufrido[1] += 50 * (this.adversarios[0].getAtaque() / this.adversarios[1].getDefensa()) * 1;
+              } if (this.adversarios[0].getUniverso() == 'starwars') {
+                dañoSufrido[1] += 50 * (this.adversarios[0].getAtaque() / this.adversarios[1].getDefensa()) * 0.5;
+              }
+              break;
+            case 1:
+              if (this.adversarios[1].getUniverso() == 'dragonball') {
+                dañoSufrido[0] += 50 * (this.adversarios[1].getAtaque() / this.adversarios[0].getDefensa()) * 2;
+              } if ((this.adversarios[0].getUniverso() == 'marvel') || (this.adversarios[0].getUniverso() == 'dc')) {
+                dañoSufrido[0] += 50 * (this.adversarios[1].getAtaque() / this.adversarios[0].getDefensa()) * 1;
+              } if (this.adversarios[0].getUniverso() == 'starwars') {
+                dañoSufrido[0] += 50 * (this.adversarios[1].getAtaque() / this.adversarios[0].getDefensa()) * 0.5;
+              }
+              break;
+          }
+          console.log('\tSalud restante de los combatientes:');
+          console.log('\t--------------------------------');
+          console.log('\t' + this.adversarios[0].getNombre(), '= ', (this.adversarios[0].getHp()-dañoSufrido[0]).toFixed());
+          console.log('\t' + this.adversarios[1].getNombre(), '= ', (this.adversarios[1].getHp()-dañoSufrido[1]).toFixed(), '\n');
+          iterador++;
+        }
+        let vencedor: string = 'El vencedor del combate es: ';
+          dañoSufrido[0] >= this.adversarios[0].getHp() ? vencedor += this.adversarios[1].getNombre() : vencedor += this.adversarios[0].getNombre();
+          console.log(vencedor);
+          return vencedor;
+      }
+
+Esta función es una mejora directa de la función implementada en la práctica anterior. En esta ocasión, considerándolo más apropiado, he decidido introducir los bloques _if()_ dentro de cada _case_ del _switch()_. El primer _case_ se activará cuando le toque al primer adversario, y el otro cuando le toque al segundo. Esto se calcula con el módulo 2 del iterador, consiguiendo que las iteraciones impares del _while()_ sean para el segundo adversario y las pares para el primero. Este _while()_ terminará cuando el daño sufrido por alguno de los dos adversarios sea mayor que su _HP_. 
+
+A la hora de calcular la efectividad de los ataques, se ha tenido en cuenta la naturaleza de los distintos universos. Un personaje de Dragon Ball, universo con leyes físicas prácticamente inexistentes e inmesurables cantidades de poder, atacará con mayor efectividad. Un personaje de Marvel o de DC, ambos universos de superhéroes bastante similares, atacarán con una efectividad media (ni sumará ni restará al daño aplicado). Por último, un personaje de Star Wars tendrá una menor efectividad, pues sus personajes son considerablemente más débiles que la gran mayoría de personajes del resto de universos. 
+
+### Clase Pokedex
+      
+      type Universo = Marvel | DC | StarWars | DragonBall;
+
+      export class Pokedex {
+        constructor(protected elementos: Universo[]) {}
+        //
+        // Funciones
+        //
+      }
+
+#### Atributos
+
+- elementos: Universo[]
+
+Como se explicó al principio, la clase Pokedex contendrá una tupla de elementos de tipo Universo (donde Universo es la unión de tipos entre los distintos universos que se hayan implementado).
+
+#### Funciones
+
+##### Getter de lista
+
+      getLista(): Universo[] {
+        return this.elementos;
+      }
+
+##### Función para añadir uno o varios elementos
+
+      añadir(elementos: [Universo, ...Universo[]]) {
+        for (let i: number = 0; i < elementos.length; i++) {
+          this.elementos.push(elementos[i]);
+        }
+      }
+
+##### Función para borrar uno o varios elementos
+
+      borrar(elementos: [string, ...string[]]) {
+        for (let i: number = 0; i < this.elementos.length; i++) {
+          for (let j: number = 0; j < elementos.length; j++) {
+            if (this.elementos[i].getNombre() == elementos[j]) {
+              this.elementos.splice(i, 1);
+            }
+          }
+        }
+      }
