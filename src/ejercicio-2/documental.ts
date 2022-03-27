@@ -9,11 +9,11 @@ export class Documental {
    * @param {string} fecha
    * @param {string} productor
    * @param {string} narrador
-   * @param {string[]} reparto
    * @param {string[]} temas
+   * @param {number} calificacion
    */
   constructor(private nombre: string, private episodios: number[], private fecha: string,
-    private productor: string, private narrador: string, private temas: string[]) {}
+    private productor: string, private narrador: string, private temas: string[], private calificacion: number) {}
   /**
      * Getter de nombre
      * @return {string}
@@ -66,6 +66,13 @@ export class Documental {
      */
   getTemas(): string[] {
     return this.temas;
+  }
+  /**
+   * Getter de generos
+   * @return {number}
+   */
+  getCalificacion(): number {
+    return this.calificacion;
   }
 }
 

@@ -11,10 +11,11 @@ export class Serie {
    * @param {string[]} guionistas
    * @param {string[]} reparto
    * @param {string[]} generos
+   * @param {number} calificacion
    */
   constructor(private nombre: string, private episodios: number[], private fecha: string,
     private productor: string, private guionistas: string[], private reparto: string[],
-    private generos: string[]) {}
+    private generos: string[], private calificacion: number) {}
 
   /**
      * Getter de nombre
@@ -75,6 +76,13 @@ export class Serie {
      */
   getGeneros(): string[] {
     return this.generos;
+  }
+  /**
+   * Getter de generos
+   * @return {number}
+   */
+  getCalificacion(): number {
+    return this.calificacion;
   }
 }
 

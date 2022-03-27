@@ -11,10 +11,11 @@ export class Pelicula {
    * @param {string} guionista
    * @param {string[]} reparto
    * @param {string[]} generos
+   * @param {number} calificacion
    */
   constructor(private nombre: string, private duracion: number, private fecha: string,
     private director: string, private guionista: string, private reparto: string[],
-    private generos: string[]) {}
+    private generos: string[], private calificacion: number) {}
 
   /**
      * Getter de nombre
@@ -64,6 +65,13 @@ export class Pelicula {
      */
   getGeneros(): string[] {
     return this.generos;
+  }
+  /**
+   * Getter de generos
+   * @return {number}
+   */
+  getCalificacion(): number {
+    return this.calificacion;
   }
 }
 
