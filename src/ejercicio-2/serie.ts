@@ -8,13 +8,12 @@ export class Serie {
    * @param {number[]} episodios // Cada elemento tendrá la cantidad de episodios por temporada
    * @param {string} fecha
    * @param {string} productor
-   * @param {string[]} guionistas
    * @param {string[]} reparto
    * @param {string[]} generos
    * @param {number} calificacion
    */
   constructor(private nombre: string, private episodios: number[], private fecha: string,
-    private productor: string, private guionistas: string[], private reparto: string[],
+    private productor: string, private reparto: string[],
     private generos: string[], private calificacion: number) {}
 
   /**
@@ -55,13 +54,6 @@ export class Serie {
      */
   getProductor(): string {
     return this.productor;
-  }
-  /**
-     * Getter de guionistas
-     * @return {string[]}
-     */
-  getGuionista(): string[] {
-    return this.guionistas;
   }
   /**
      * Getter de reparto
