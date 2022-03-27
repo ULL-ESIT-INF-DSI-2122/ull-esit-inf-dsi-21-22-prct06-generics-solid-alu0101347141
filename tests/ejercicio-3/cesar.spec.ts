@@ -8,9 +8,9 @@ describe('Cifrado Cesar', () => {
   });
   const prueba = new Cesar('ABCDEFGHIJKLMNÑOPQRSTUVWXYZ', 'CLAVE');
   it('Permite cifrar', () => {
-    expect(prueba.cifrar('HOLAESTOESUNAPRUEBA')).to.be.equal('JZLVIUEOZWWXALVWOBV');
+    expect(prueba.cifrar('HOLAESTOESUNAPRUEBA')).to.be.equal('KAMWJVFPAXXYBMWXPCW');
   });
   it('Permite descifrar', () => {
-    expect(prueba.descifrar('JZLVIUEOZWWXALVWOBV')).to.be.equal('HOLAESTOESUNAPRUEBA');
+    expect(prueba.descifrar('KAMWJVFPAXXYBMWXPCW')).to.be.equal('HOLAESTOESUNAPRUEBA');
   });
 });
