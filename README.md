@@ -483,50 +483,208 @@ Se han escogido los siguientes atributos para representar una película:
   - generos: string[] -> Conjunto de géneros de la película
   - calificacion: number -> Calificación media de la película
 
-  ##### Getter de nombre
-  
-      getNombre(): string {
-        return this.nombre;
+#### Funciones
+
+##### Getter de nombre
+
+    getNombre(): string {
+      return this.nombre;
+    }
+
+##### Getter de duracion
+
+    getDuracion(): number {
+      return this.duracion;
+    }
+
+##### Getter de fecha
+
+    getFecha(): string {
+      return this.fecha;
+    }
+
+##### Getter de director
+
+    getDirector(): string {
+      return this.director;
+    }
+
+##### Getter de guionista
+
+    getGuionista(): string {
+      return this.guionista;
+    }
+
+##### Getter de reparto
+
+    getReparto(): string[] {
+      return this.reparto;
+    }
+
+##### Getter de generos
+
+    getGeneros(): string[] {
+      return this.generos;
+    }
+
+##### Getter de calificacion
+
+      getCalificacion(): number {
+      return this.calificacion;
+    }
+
+### Clase Serie
+
+        export class Serie {
+          constructor(private nombre: string, private episodios: number[], private fecha: string,
+            private productor: string, private reparto: string[],
+            private generos: string[], private calificacion: number) {}
+            //
+            // Funciones
+            //
+        }
+
+#### Atributos
+
+Se han escogido los siguientes atributos para representar una serie:
+  - nombre: string -> Nombre de la serie
+  - episodios: number[] -> Cantidad de episodios por temporada
+  - fecha: string -> Fecha en formato 'd/m/aaaa'
+  - productor: string -> Productor de la serie
+  - reparto: string[] -> Conjunto de actores protagonistas de la serie
+  - generos: string[] -> Conjunto de géneros de la serie
+  - calificacion: number -> Calificación media de la serie
+
+#### Funciones
+
+##### Getter de nombre
+
+    getNombre(): string {
+      return this.nombre;
+    }
+
+##### Getter de episodios (array, episodios por temporada)
+
+    getEpisodiosPorTemporada(): number[] {
+      return this.episodios;
+    }
+
+##### Getter de episodios (totales)
+
+    getEpisodiosTotales(): number {
+      let total: number = 0;
+      this.episodios.forEach(function(a) {
+        total += a;
+      });
+      return total;
+    }
+
+##### Getter de fecha
+
+    getFecha(): string {
+      return this.fecha;
+    }
+
+##### Getter de productor
+
+    getProductor(): string {
+      return this.productor;
+    }
+
+##### Getter de reparto
+
+    getReparto(): string[] {
+      return this.reparto;
+    }
+
+##### Getter de generos
+
+    getGeneros(): string[] {
+      return this.generos;
+    }
+
+##### Getter de calificacion
+
+      getCalificacion(): number {
+      return this.calificacion;
+    }
+
+### Clase Documental
+
+      export class Documental {
+        constructor(private nombre: string, private episodios: number[], 
+          private fecha: string, private productor: string, private narrador: string, 
+          private temas: string[], private calificacion: number) {}
+          //
+          // Funciones
+          //
       }
 
-  ##### Getter de duracion
+#### Atributos
 
-      getDuracion(): number {
-        return this.duracion;
-      }
+Se han escogido los siguientes atributos para representar un documental:
+  - nombre: string -> Nombre del documental
+  - episodios: number[] -> Cantidad de episodios por temporada
+  - fecha: string -> Fecha en formato 'd/m/aaaa'
+  - productor: string -> Productor del documental
+  - narrador: string -> Narrador del documental
+  - temas: string[] -> Conjunto de temas del documental
+  - calificacion: number -> Calificación media del documental
 
-  ##### Getter de fecha
+#### Funciones
 
-      getFecha(): string {
-        return this.fecha;
-      }
+##### Getter de nombre
 
-  ##### Getter de director
+    getNombre(): string {
+      return this.nombre;
+    }
 
-      getDirector(): string {
-        return this.director;
-      }
+##### Getter de episodios (array, episodios por temporada)
 
-  ##### Getter de guionista
+    getEpisodiosPorTemporada(): number[] {
+      return this.episodios;
+    }
 
-      getGuionista(): string {
-        return this.guionista;
-      }
+##### Getter de episodios (totales)
 
-  ##### Getter de reparto
+    getEpisodiosTotales(): number {
+      let total: number = 0;
+      this.episodios.forEach(function(a) {
+        total += a;
+      });
+      return total;
+    }
 
-      getReparto(): string[] {
-        return this.reparto;
-      }
+##### Getter de fecha
 
-  ##### Getter de generos
+    getFecha(): string {
+      return this.fecha;
+    }
 
-      getGeneros(): string[] {
-        return this.generos;
-      }
+##### Getter de productor
 
-  ##### Getter de calificacion
+    getProductor(): string {
+      return this.productor;
+    }
 
-        getCalificacion(): number {
-        return this.calificacion;
-      }
+##### Getter de narrador
+
+    getNarrador(): string {
+      return this.narrador;
+    }
+
+##### Getter de temas
+
+    getTemas(): string[] {
+      return this.temas;
+    }
+
+##### Getter de calificacion
+
+      getCalificacion(): number {
+      return this.calificacion;
+    }
+
+### Posible clase abstracta
+
+Como podemos ver, las tres clases comentadas: Pelicula, Serie y Documental cuentan con algunos atributos en común y, probablemente, si creásemos nuevos tipos de contenido es muy posible que eso se mantenga. Podríamos entonces crear una clase abstracta Contenido, que tenga atributos como _nombre_ o _calificacion_, y extenderla con Pelicula, Serie y Documental. Aun así, para la implementación de esta práctica se ha decidido mantenerlas como clases estrictamente independientes, para hacer más sencilla la exposición y explicación del desarrollo. 
