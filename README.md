@@ -1,7 +1,7 @@
 ## *Jonay Méndez Márquez*
 
 ### *alu0101347141*
-# **DSI - Práctica 5**
+# **DSI - Práctica 6**
 
 ## Configuración de Coveralls
 
@@ -39,10 +39,10 @@ Procede entonces la explicación de cada una de las clases que entran en juego e
 
         abstract class Fighter {
           constructor(protected readonly nombre: string, protected readonly universo: string, 
-                      protected altura: number, protected peso: number,
-                      protected ataque: number, protected defensa: number, 
-                      protected velocidad: number, protected hp: number, 
-                      protected frases: string[]) {}
+              protected altura: number, protected peso: number,
+              protected ataque: number, protected defensa: number, 
+              protected velocidad: number, protected hp: number, 
+              protected frases: string[]) {}
           //
           // Funciones
           //
@@ -117,4 +117,51 @@ Y, finalmente, aunque también podría considerarse un getter (del atributo _fra
 
       talk(): string {
         return this.frases[Math.floor(Math.random() * (this.frases.length))];
+      }
+
+
+### Clase DC
+
+        export class DC extends Fighter {
+          constructor(nombre: string, altura: number, peso: number,
+              ataque: number, defensa: number, velocidad: number, hp: number,
+              protected nombreReal: string, protected nemesis: string[],
+              protected poderes: string[], protected activo: boolean, protected frases: string[]) {
+            super(nombre, 'dc', altura, peso, ataque, defensa, velocidad, hp, frases);
+          }
+
+#### Atributos
+
+Un luchador de DC tendrá los siguientes atributos específicos:
+  - nombreReal: string -> Nombre de la persona tras la máscara
+  - nemesis: string[] -> Conjunto de personajes a los que se enfrenta con frecuencia
+  - poderes: string[] -> Lista de habilidades y armas que utilice el personaje
+  - activo: boolean -> Atributo que indica si el personaje sigue activo o no en su universo.
+
+Además de los atributos concretos, a la hora de instanciar un objeto de esta clase deberán pasársele a través del constructor los atributos de la clase Fighter, que se canalizarán a través de la función _super()_.
+
+#### Funciones
+
+##### Getter de nombreReal
+
+      getNombreReal(): string {
+        return this.nombreReal;
+      }
+
+##### Getter de nemesis
+
+      getNemesis(): string[] {
+        return this.nemesis;
+      }
+
+##### Getter de poderes
+
+      getPoderes(): string[] {
+        return this.poderes;
+      }
+
+##### Getter de activo
+
+      isActive(): boolean {
+        return this.activo;
       }
