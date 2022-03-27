@@ -27,4 +27,7 @@ describe('ColeccionSeries', () => {
     coleccionTest.borrar(3);
     expect(coleccionTest.getColeccion()).to.deep.equal([serie1, serie2, serie3]);
   });
+  it('Se puede recibir el número de series', () => {
+    expect(coleccionTest.getCantidad()).to.deep.equal(3);
+  });
 });
