@@ -826,3 +826,57 @@ Para desarrollar nuevas funciones, específicas para una colección de series, e
       }
 
 Para desarrollar nuevas funciones, específicas para una colección de documentales, extendemos la clase basicStreamableCollection concretándole el tipo Documental tal y como se ve en el código anterior.
+
+## Ejercicio 3 - Cifrado Cesar
+
+En esta actividad el objetivo es programar una implementación del cifrado Cesar y su correspondiente descifrado. Aunque existe un amplio abanico de opciones con las que abarcar este problema, lo que al final se ha decidido es desarrollar lo siguiente:
+
+  - clase Cesar
+    * alfabeto (atributo de tipo string)
+    + cifrado()
+    + descifrado()
+
+Esto es, se ha creado una clase con un atributo para almacenar el alfabeto y un método para el cifrado y el descifrado, ambos recibiendo la string a tratar y la clave como argumentos. A la hora crear una instancia de la clase, se indicará el alfabeto a utilizar y luego se podrá invocar con dicho objeto a las funciones cifrado() y descifrado() con los mensajes y las claves que se deseen. 
+
+      export class Cesar {
+        constructor(private alfabeto: string) {}
+        // 
+        // Funciones
+        //
+      }
+
+### Atributos
+
+  - alfabeto: string -> Alfabeto con el que se realizará el cifrado/descifrado. Será un atributo privado y además no se ha creado ningún getter, para mantenerlo completamente secreto.
+
+### Funciones
+
+#### Función de cifrado
+
+      cifrar(mensaje: string, clave: string): string {
+        let cifrado: string = '';
+        for (let i: number = 0; i < mensaje.length; i++) {
+          const char: string = clave[i%clave.length];
+          cifrado += this.alfabeto[((this.alfabeto.indexOf(mensaje[i])) + (this.alfabeto.indexOf(char)+1))%this.alfabeto.length];
+        }
+        return cifrado;
+      }
+
+Se ha creado un bucle for que itera una vez por cada caracter del mensaje. En cada iteración, se inserta en una variable _char_ el caracter de la clave que corresponda (calculándole al iterador el módulo con el tamaño de la clave). Luego, añadimos a la cadena cifrada aquel caracter del alfabeto cuyo índice sea la suma del índice del caracter del mensaje y el índice del caracter de la clave (a este último índice se le suma 1 pues será el número de desplazamientos. Por ejemplo, el caracter 'C' tendrá índice 2 en el alfabeto pero realmente está en la tercera posición, es decir, serán 3 desplazamientos). Al índice resultado le calculamos el módulo con la longitud del alfabeto, para que en caso de que lo sobrepase se vuelva a buscar desde el principio.
+
+#### Función de descifrado
+
+      descifrar(cifrado: string, clave: string): string {
+        let mensaje: string = '';
+        for (let i: number = 0; i < cifrado.length; i++) {
+          const char: string = clave[i%clave.length];
+          let index: number = ((this.alfabeto.indexOf(cifrado[i])) - (this.alfabeto.indexOf(char)+1));
+          if (index < 0) {
+            index += this.alfabeto.length;
+          }
+          mensaje += this.alfabeto[index];
+        }
+        return mensaje;
+      }
+
+Para el descifrado se ha seguido una lógica bastante parecida al cifrado. En esta ocasión, en lugar de sumar el índice del caracter cifrado y el de la clave, se hace una resta (será el desplazamiento de antes pero a la inversa, volviendo sobre nuestros pasos). Si el índice calculado es negativo, entonces se le sumará la longitud del alfabeto (la búsqueda "saldrá" por el primer caracter y "entrará" por el último)
