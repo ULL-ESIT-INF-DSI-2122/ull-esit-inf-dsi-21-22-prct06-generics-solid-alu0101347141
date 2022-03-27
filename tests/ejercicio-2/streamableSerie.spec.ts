@@ -12,9 +12,9 @@ describe('ColeccionSeries', () => {
   const serie2 = new Serie('Juego de Tronos', [10, 10, 10, 10, 10, 10, 7, 6], '17/4/2011', 'David Benioff', ['Emilia Clarke', 'Kit Harington', 'Sophie Turner'],
       ['Fantasía', 'Drama', 'Aventura'], 9.2);
   const serie3 = new Serie('Juego del Calamar', [9], '17/9/2021', 'Hwang Dong-Hyuk', ['Hoyeon Jung', 'Lee Jung-jae', 'Gong Yoo'],
-      ['Suspense', 'Supervivencia', 'Drama'], 9.2);
+      ['Suspense', 'Supervivencia', 'Drama'], 9.4);
   const serie4 = new Serie('The Mandalorian', [8, 8], '12/11/2019', 'Jon Favreu', ['Pedro Pascal'],
-      ['Space western', 'Ciencia ficción', 'Fantasía'], 9.2);
+      ['Space western', 'Ciencia ficción', 'Fantasía'], 9.7);
   const coleccionTest = new ColeccionSeries([serie1, serie2, serie3]);
   it('Debe almacenar una colección de series', () => {
     expect(coleccionTest.getColeccion()).to.deep.equal([serie1, serie2, serie3]);
@@ -36,5 +36,8 @@ describe('ColeccionSeries', () => {
   });
   it('Se puede buscar una serie por nombre', () => {
     expect(coleccionTest.searchByNombre('Juego')).to.deep.equal([serie2, serie3]);
+  });
+  it('Se puede buscar una serie por nota', () => {
+    expect(coleccionTest.searchByNota(9.4)).to.deep.equal([serie1, serie3]);
   });
 });
