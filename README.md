@@ -128,6 +128,10 @@ Y, finalmente, aunque también podría considerarse un getter (del atributo _fra
               protected poderes: string[], protected activo: boolean, protected frases: string[]) {
             super(nombre, 'dc', altura, peso, ataque, defensa, velocidad, hp, frases);
           }
+          //
+          // Funciones
+          //
+        }
 
 #### Atributos
 
@@ -174,6 +178,11 @@ Además de los atributos concretos, a la hora de instanciar un objeto de esta cl
               protected poderes: string[], protected afiliaciones: string[], protected frases: string[]) {
             super(nombre, 'marvel', altura, peso, ataque, defensa, velocidad, hp, frases);
           }
+          //
+          // Funciones
+          //
+        }
+
 
 #### Atributos
 
@@ -210,3 +219,54 @@ Además de los atributos concretos, a la hora de instanciar un objeto de esta cl
       getAfiliaciones(): string[] {
         return this.afiliaciones;
       }
+
+### Clase StarWars
+
+        export class StarWars extends Fighter {
+          constructor(nombre: string, altura: number, peso: number,
+              ataque: number, defensa: number, velocidad: number, hp: number,
+              protected planetaNatal: string, protected raza: string,
+              protected portadorFuerza: boolean, protected titulos: string[], protected frases: string[]) {
+            super(nombre, 'starwars', altura, peso, ataque, defensa, velocidad, hp, frases);
+          }
+          //
+          // Funciones
+          //
+        }
+
+
+#### Atributos
+
+Un luchador de Star Wars tendrá los siguientes atributos específicos:
+  - planetaNatal: string -> Planeta donde nació
+  - raza: string[] -> Raza a la que pertenece
+  - portadorFuerza: boolean -> Indica si tiene control sobre la Fuerza o no
+  - titulos: string[] -> Conjunto títulos y reconocimientos que alberga
+
+Además de los atributos concretos, a la hora de instanciar un objeto de esta clase deberán pasársele a través del constructor los atributos de la clase Fighter, que se canalizarán a través de la función _super()_.
+
+#### Funciones
+
+##### Getter de planetaNatal
+      
+      getPlanetaNatal(): string {
+        return this.planetaNatal;
+      }
+
+##### Getter de raza
+
+      getRaza(): string {
+        return this.raza;
+      }
+
+##### Getter de portadorFuerza
+
+      isPortadorFuerza(): boolean {
+        return this.portadorFuerza;
+      }
+
+##### Getter de titulos
+
+      getTitulos(): string[] {
+        return this.titulos;
+      } 
