@@ -57,7 +57,7 @@ export class Documental {
      * Getter de narrador
      * @return {string}
      */
-  getGuionista(): string {
+  getNarrador(): string {
     return this.narrador;
   }
   /**
