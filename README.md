@@ -119,7 +119,6 @@ Y, finalmente, aunque también podría considerarse un getter (del atributo _fra
         return this.frases[Math.floor(Math.random() * (this.frases.length))];
       }
 
-
 ### Clase DC
 
         export class DC extends Fighter {
@@ -164,4 +163,50 @@ Además de los atributos concretos, a la hora de instanciar un objeto de esta cl
 
       isActive(): boolean {
         return this.activo;
+      }
+  
+### Clase Marvel
+
+        export class Marvel extends Fighter {
+          constructor(nombre: string, altura: number, peso: number,
+              ataque: number, defensa: number, velocidad: number, hp: number,
+              protected nombreReal: string, protected nemesis: string[],
+              protected poderes: string[], protected afiliaciones: string[], protected frases: string[]) {
+            super(nombre, 'marvel', altura, peso, ataque, defensa, velocidad, hp, frases);
+          }
+
+#### Atributos
+
+Un luchador de Marvel tendrá los siguientes atributos específicos:
+  - nombreReal: string -> Nombre de la persona tras la máscara
+  - nemesis: string[] -> Conjunto de personajes a los que se enfrenta con frecuencia
+  - poderes: string[] -> Lista de habilidades y armas que utilice el personaje
+  - afiliaciones: string[] -> Conjunto de equipos y alianzas de las que sea miembro
+
+Además de los atributos concretos, a la hora de instanciar un objeto de esta clase deberán pasársele a través del constructor los atributos de la clase Fighter, que se canalizarán a través de la función _super()_.
+
+#### Funciones
+
+##### Getter de nombreReal
+
+      getNombreReal(): string {
+        return this.nombreReal;
+      }
+
+##### Getter de nemesis
+
+      getNemesis(): string[] {
+        return this.nemesis;
+      }
+
+##### Getter de poderes
+
+      getPoderes(): string[] {
+        return this.poderes;
+      }
+
+##### Getter de activo
+
+      getAfiliaciones(): string[] {
+        return this.afiliaciones;
       }
